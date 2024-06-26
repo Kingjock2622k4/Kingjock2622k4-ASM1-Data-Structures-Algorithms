@@ -80,20 +80,9 @@ public class Main {
                     break;
 
                 case 5:
-                    System.out.println("Choose sorting method:");
-                    System.out.println("1. Quick Sort");
-                    System.out.println("2. Selection Sort");
-                    System.out.print("Choose an option: ");
-                    int sortChoice = scanner.nextInt();
-                    if (sortChoice == 1) {
-                        sm.quickSort();
-                        System.out.println("Students sorted using Quick Sort.");
-                    } else if (sortChoice == 2) {
-                        sm.selectionSort();
-                        System.out.println("Students sorted using Selection Sort.");
-                    } else {
-                        System.out.println("Invalid choice.");
-                    }
+                    sm.sortStudentsByMarks();
+                    System.out.println("Students sorted by marks:");
+                    sm.displayStudents();
                     break;
 
                 case 6:

@@ -52,48 +52,18 @@ public class StudentManagement {
         return result;
     }
 
-    // Quick sort algorithm by student marks (descending order)
-    public void quickSort() {
-        quickSort(0, students.size() - 1);
-    }
-
-    private void quickSort(int low, int high) {
-        if (low < high) {
-            int pi = partition(low, high);
-            quickSort(low, pi - 1);
-            quickSort(pi + 1, high);
-        }
-    }
-
-    private int partition(int low, int high) {
-        double pivot = students.get(high).getStudentMarks();
-        int i = (low - 1);
-        for (int j = low; j < high; j++) {
-            if (students.get(j).getStudentMarks() >= pivot) {
-                i++;
-                Student temp = students.get(i);
-                students.set(i, students.get(j));
-                students.set(j, temp);
-            }
-        }
-        Student temp = students.get(i + 1);
-        students.set(i + 1, students.get(high));
-        students.set(high, temp);
-        return i + 1;
-    }
-
-    // Selection sort algorithm by student marks (descending order)
-    public void selectionSort() {
-        for (int i = 0; i < students.size() - 1; i++) {
-            int maxIndex = i;
-            for (int j = i + 1; j < students.size(); j++) {
-                if (students.get(j).getStudentMarks() > students.get(maxIndex).getStudentMarks()) {
-                    maxIndex = j;
+    // Sort students by their marks in descending order using bubble sort
+    public void sortStudentsByMarks() {
+        int n = students.size();
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - 1 - i; j++) {
+                if (students.get(j).getStudentMarks() < students.get(j + 1).getStudentMarks()) {
+                    // Swap students[j] and students[j + 1]
+                    Student temp = students.get(j);
+                    students.set(j, students.get(j + 1));
+                    students.set(j + 1, temp);
                 }
             }
-            Student temp = students.get(maxIndex);
-            students.set(maxIndex, students.get(i));
-            students.set(i, temp);
         }
     }
 
